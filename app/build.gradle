@@ -32,4 +32,8 @@ dependencies {
     // https://mvnrepository.com/artifact/org.bouncycastle/bcpg-jdk15on
     compile group: 'org.bouncycastle', name: 'bcpg-jdk15on', version: '1.59'
 
+    // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
+    compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.59'
+
+
 }

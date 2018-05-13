@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         // Encryption Test
         Log.v("EncryptionTest", "Encrypting Files..");
         try {
-            keyBasedFileProcessor.encrypt("/sdcard/video.mp4", "/sdcard/pub.bpg");
+            keyBasedFileProcessor.encrypt("/sdcard/images.jpg", "/sdcard/pub.bpg");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,10 +48,22 @@ public class MainActivity extends AppCompatActivity {
         // Decryption Test
         Log.v("EncryptionTest", "Decrypting Files..");
         try {
-            keyBasedFileProcessor.decrypt("/sdcard/video.mp4.bpg", "/sdcard/secret.bpg", "123");
+            keyBasedFileProcessor.decrypt("/sdcard/images.jpg.bpg", "/sdcard/secret.bpg", "123");
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
+//        DIGITAL SIGNATURE
+        SignedFileProcessor signedFileProcessor= new SignedFileProcessor();
+
+        Log.v("EncryptionTests", "Signing Files..");
+        signedFileProcessor.signFile("/sdcard/images.jpg","/sdcard/images.jpg"+".asc","/sdcard/secret.bpg","123");
+
+        Log.v("EncryptionTests", "Verifying signatuire of Files..");
+        signedFileProcessor.verifyFile("/sdcard/images.jpg"+".asc","/sdcard/pub.bpg", "/sdcard/images.jpg.verified");
+
     }
 
 }
